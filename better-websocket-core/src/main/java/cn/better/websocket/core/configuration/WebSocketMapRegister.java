@@ -29,9 +29,9 @@ public class WebSocketMapRegister implements ImportBeanDefinitionRegistrar{
 
     private static final String BASE_PACKAGES_FIELD = "basePackages";
 
-    private Map<String, WebSocketClass> webSocketMap = new HashMap<>();
+    private static final Map<String, WebSocketClass> webSocketMap = new HashMap<>();
 
-    public Map<String, WebSocketClass> getWebSocketMap() {
+    public static Map<String, WebSocketClass> getWebSocketMap() {
         return webSocketMap;
     }
 
