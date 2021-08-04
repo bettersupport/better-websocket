@@ -1,0 +1,64 @@
+{
+  "groups": [
+    {
+      "name": "spring.better.websocket",
+      "type": "cn.better.websocket.core.properties.BetterWebSocketProperties",
+      "sourceType": "cn.better.websocket.core.properties.BetterWebSocketProperties",
+      "description": "websocket properties."
+    }
+  ],
+  "properties": [
+    {
+      "name": "spring.better.websocket.parentGroupThreadNumber",
+      "type": "java.lang.Integer",
+      "sourceType": "cn.better.websocket.core.properties.BetterWebSocketProperties",
+      "defaultValue": 0,
+      "description": "websocket parent thread number."
+    },
+    {
+      "name": "spring.better.websocket.childGroupThreadNumber",
+      "type": "java.lang.Integer",
+      "sourceType": "cn.better.websocket.core.properties.BetterWebSocketProperties",
+      "defaultValue": 0,
+      "description": "websocket child thread number."
+    },
+    {
+      "name": "spring.better.websocket.serverPort",
+      "type": "java.lang.Integer",
+      "sourceType": "cn.better.websocket.core.properties.BetterWebSocketProperties",
+      "defaultValue": 10000,
+      "description": "websocket server port."
+    },
+    {
+      "name": "spring.better.websocket.pathPrefix",
+      "type": "java.lang.String",
+      "sourceType": "cn.better.websocket.core.properties.BetterWebSocketProperties",
+      "defaultValue": "",
+      "description": "websocket path prefix, format: /*[/*]."
+    },
+    {
+      "name": "spring.better.websocket.wsReadTimeout",
+      "type": "java.lang.Long",
+      "sourceType": "cn.better.websocket.core.properties.BetterWebSocketProperties",
+      "defaultValue": 60000,
+      "description": "websocket read timeout."
+    },
+    {
+      "name": "spring.better.websocket.wsWriteTimeout",
+      "type": "java.lang.Long",
+      "sourceType": "cn.better.websocket.core.properties.BetterWebSocketProperties",
+      "defaultValue": 60000,
+      "description": "websocket write timeout."
+    },
+    {
+      "name": "spring.better.websocket.maxContentLength",
+      "type": "java.lang.Long",
+      "sourceType": "cn.better.websocket.core.properties.BetterWebSocketProperties",
+      "defaultValue": 1048576,
+      "description": "websocket max message length, default 1MB."
+    }
+  ],
+  "hints": [
+
+  ]
+}
