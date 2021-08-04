@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @remark
  */
 @SpringBootApplication
-@WebSocketMapScan({"cn.better.websocket.demo.endpoint.*"})
+@WebSocketMapScan({"cn.better.websocket.demo.endpoint"})
 public class DemoApplication {
 
     public static void main(String[] args) {

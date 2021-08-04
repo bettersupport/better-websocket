@@ -14,10 +14,8 @@ import java.lang.annotation.*;
 @Documented
 public @interface WebSocketMapping {
 
-    @AliasFor("path")
     String value() default "";
 
-    @AliasFor("value")
     String path() default "";
 
 }

@@ -45,10 +45,10 @@ public interface WebSocketEndpointInterface {
      */
     default void sendMessage(WebSocketSession session, String message) throws WebSocketSendMessageException {
         if (session == null) {
-            throw new NullPointerException("WebSocketSession不能为空");
+            throw new NullPointerException("WebSocketSession is null");
         }
         if (session.getContext() == null || session.getContext().channel() == null) {
-            throw new WebSocketSendMessageException("WebSocketSession不可用");
+            throw new WebSocketSendMessageException("WebSocketSession not available");
         }
         sendMessage(session.getContext().channel(), message);
     }
@@ -64,10 +64,10 @@ public interface WebSocketEndpointInterface {
             if (channel.isActive() && channel.isRegistered() && channel.isWritable()) {
                 channel.writeAndFlush(new TextWebSocketFrame(message));
             } else {
-                throw new WebSocketSendMessageException("连接不可用");
+                throw new WebSocketSendMessageException("connection not available");
             }
         } else {
-            throw new WebSocketSendMessageException("连接已关闭");
+            throw new WebSocketSendMessageException("connection closed");
         }
     }
 
