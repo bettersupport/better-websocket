@@ -24,7 +24,7 @@ spring:
       zookeeper:
         nodes: 127.0.0.1:2181
     websocket:
-      childGroupThreadNumber: 10000
+      childGroupThreadNumber: 1000
       serverPort: 10001
       pathPrefix: /websocket
       maxContentLength: 10485760
