@@ -18,23 +18,22 @@ public class GameOnline implements WebSocketEndpointInterface {
     private static final Logger log = LoggerFactory.getLogger(GameOnline.class);
     @Override
     public void onOpen(WebSocketSession session) {
-        log.info("onOpen {}", JSONObject.toJSONString(session));
+        log.info("onOpen({}) {}", session, JSONObject.toJSONString(session));
     }
 
     @Override
     public void onMessage(WebSocketSession session, String message) {
-        log.info("onMessage {} \nmsg {}", JSONObject.toJSONString(session), message);
+        log.info("onMessage({}) {} \nmsg {}", session, JSONObject.toJSONString(session), message);
         sendMessage(session, "game_online: " + message);
     }
 
     @Override
     public void onClose(WebSocketSession session) {
-        log.info("onClose {}", JSONObject.toJSONString(session));
+        log.info("onClose({}) {}", session, JSONObject.toJSONString(session));
     }
 
     @Override
     public void onError(WebSocketSession session, Throwable t) {
-        log.info("onError {}", JSONObject.toJSONString(session));
-        log.info("onError {} | {}", JSONObject.toJSONString(session), Throwables.getStackTraceAsString(t));
+        log.error("onError({}) {} | {}", session, JSONObject.toJSONString(session), Throwables.getStackTraceAsString(t));
     }
 }

@@ -59,10 +59,11 @@ public class WebSocketHandler extends SimpleChannelInboundHandler<TextWebSocketF
                     notFoundError(ctx);
                 } else {
                     String path = uri.substring(properties.getPathPrefix().length());
-                    String pathWithoutParam = path.substring(0, path.indexOf("?"));
+                    int paramStartIndex = path.indexOf("?");
+                    String pathWithoutParam = path.substring(0, paramStartIndex >= 0 ? paramStartIndex : path.length());
                     WebSocketClass clazz = WebSocketMapRegister.getWebSocketMap().get(pathWithoutParam);
                     if (clazz == null) {
-                        log.warn("url {} not found", uri);
+                        log.warn("url {} not found", path);
                         notFoundError(ctx);
                     } else {
                         super.channelRead(ctx, msg);
