@@ -40,7 +40,6 @@ public class WebSocketHandler extends SimpleChannelInboundHandler<TextWebSocketF
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) throws Exception {
-        log.info("channelRead0 {}", ctx);
         if (endpoint != null) {
             session.setContext(ctx);
             endpoint.onMessage(session, msg.text());
@@ -49,7 +48,6 @@ public class WebSocketHandler extends SimpleChannelInboundHandler<TextWebSocketF
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        log.info("channelRead {}", ctx);
         if (msg != null && msg instanceof FullHttpRequest) {
             FullHttpRequest request = (FullHttpRequest) msg;
             String uri = request.uri();
@@ -58,11 +56,14 @@ public class WebSocketHandler extends SimpleChannelInboundHandler<TextWebSocketF
                 ctx.close();
             } else {
                 if (uri.indexOf(properties.getPathPrefix()) != 0) {
+                    log.warn("url {} not found", uri);
                     notFoundError(ctx);
                 } else {
                     String path = uri.substring(properties.getPathPrefix().length());
-                    WebSocketClass clazz = WebSocketMapRegister.getWebSocketMap().get(path);
+                    String pathWithoutParam = path.substring(0, path.indexOf("?"));
+                    WebSocketClass clazz = WebSocketMapRegister.getWebSocketMap().get(pathWithoutParam);
                     if (clazz == null) {
+                        log.warn("url {} not found", uri);
                         notFoundError(ctx);
                     } else {
                         super.channelRead(ctx, msg);
