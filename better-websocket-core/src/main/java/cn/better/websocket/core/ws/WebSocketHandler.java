@@ -2,7 +2,6 @@ package cn.better.websocket.core.ws;
 
 import cn.better.websocket.core.WebSocketEndpointInterface;
 import cn.better.websocket.core.configuration.WebSocketMapRegister;
-import cn.better.websocket.core.exception.WebSocketSendMessageException;
 import cn.better.websocket.core.model.WebSocketClass;
 import cn.better.websocket.core.model.WebSocketSession;
 import cn.better.websocket.core.properties.BetterWebSocketProperties;
