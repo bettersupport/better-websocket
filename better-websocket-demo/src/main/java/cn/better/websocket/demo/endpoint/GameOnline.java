@@ -23,7 +23,7 @@ public class GameOnline implements WebSocketEndpointInterface {
 
     @Override
     public void onMessage(WebSocketSession session, String message) {
-        log.info("onMessage({}) {} \nmsg {}", session, JSONObject.toJSONString(session), message);
+        log.info("onMessage({}) {} \n[{}]", session, JSONObject.toJSONString(session), message);
         sendMessage(session, "game_online: " + message);
     }
 

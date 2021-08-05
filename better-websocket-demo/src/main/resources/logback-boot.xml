@@ -6,12 +6,22 @@
             <charset>utf8</charset>
         </encoder>
     </appender>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>demo.log</file>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>history/demo/%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+    </appender>
 
     <logger name="cn.better.websocket" level="DEBUG" additivity="false">
-        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
     </logger>
 
     <root level="INFO">
-        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
     </root>
 </configuration>
