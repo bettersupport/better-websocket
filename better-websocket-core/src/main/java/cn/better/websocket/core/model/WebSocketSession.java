@@ -2,6 +2,8 @@ package cn.better.websocket.core.model;
 
 import io.netty.channel.ChannelHandlerContext;
 
+import java.util.Map;
+
 /**
  * @author wang.wencheng
  * @date 2021-8-3
@@ -11,7 +13,7 @@ public class WebSocketSession {
 
     private ChannelHandlerContext context;
 
-    private Object message;
+    private Map<String, String> params;
 
     public ChannelHandlerContext getContext() {
         return context;
@@ -21,11 +23,11 @@ public class WebSocketSession {
         this.context = context;
     }
 
-    public Object getMessage() {
-        return message;
+    public Map<String, String> getParams() {
+        return params;
     }
 
-    public void setMessage(Object message) {
-        this.message = message;
+    public void setParams(Map<String, String> params) {
+        this.params = params;
     }
 }

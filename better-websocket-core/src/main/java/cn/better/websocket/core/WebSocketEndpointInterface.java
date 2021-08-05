@@ -21,8 +21,9 @@ public interface WebSocketEndpointInterface {
     /**
      * 连接收到消息
      * @param session 会话
+     * @param message 消息
      */
-    void onMessage(WebSocketSession session);
+    void onMessage(WebSocketSession session, String message);
 
     /**
      * 连接关闭

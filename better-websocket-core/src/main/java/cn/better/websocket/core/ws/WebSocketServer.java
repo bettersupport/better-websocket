@@ -1,7 +1,5 @@
 package cn.better.websocket.core.ws;
 
-import cn.better.websocket.core.configuration.BetterWebSocketConfiguration;
-import cn.better.websocket.core.exception.WebSocketServerException;
 import cn.better.websocket.core.properties.BetterWebSocketProperties;
 import com.google.common.base.Throwables;
 import io.netty.bootstrap.ServerBootstrap;
@@ -42,13 +40,13 @@ public class WebSocketServer {
         port = properties.getServerPort();
     }
 
-    public void start() {
+    public void start() throws InterruptedException {
+        log.info("Starting WebSocketServer...");
+        ChannelFuture channelFuture = serverBootstrap.bind(port).sync();
+        log.info("Started WebSocketServer on port {}", port);
         ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
         singleThreadExecutor.execute(() -> {
             try {
-                log.info("starting WebSocketServer...");
-                ChannelFuture channelFuture = serverBootstrap.bind(port).sync();
-                log.info("started WebSocketServer");
                 channelFuture.channel().closeFuture().sync();
             } catch (Exception e) {
                 log.error("WebSocketServer:ERROR: {}", Throwables.getStackTraceAsString(e));
