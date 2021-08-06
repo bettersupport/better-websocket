@@ -30,14 +30,14 @@ public class WebSocketServer {
     private Integer port;
 
     public WebSocketServer(BetterWebSocketProperties properties) {
-        parentGroup = new NioEventLoopGroup(properties.getParentGroupThreadNumber());
-        childGroup = new NioEventLoopGroup(properties.getChildGroupThreadNumber());
+        parentGroup = new NioEventLoopGroup(properties.getServer().getParentGroupThreadNumber());
+        childGroup = new NioEventLoopGroup(properties.getServer().getChildGroupThreadNumber());
 
         serverBootstrap = new ServerBootstrap();
         serverBootstrap.group(parentGroup, childGroup)
                 .channel(NioServerSocketChannel.class)
                 .childHandler(new WebSocketInitializer(properties));
-        port = properties.getServerPort();
+        port = properties.getServer().getServerPort();
     }
 
     public void start() throws InterruptedException {

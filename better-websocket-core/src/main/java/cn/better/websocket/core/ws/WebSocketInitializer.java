@@ -29,16 +29,17 @@ public class WebSocketInitializer extends ChannelInitializer<SocketChannel> {
     protected void initChannel(SocketChannel ch) throws Exception {
         ChannelPipeline pipeline = ch.pipeline();
 
-        pipeline.addLast(new ReadTimeoutHandler(properties.getWsReadTimeout(), TimeUnit.MILLISECONDS));
+        pipeline.addLast(new ReadTimeoutHandler(properties.getConnect().getWsReadTimeout(), TimeUnit.MILLISECONDS));
 
-        pipeline.addLast(new WriteTimeoutHandler(properties.getWsWriteTimeout(), TimeUnit.MILLISECONDS));
+        pipeline.addLast(new WriteTimeoutHandler(properties.getConnect().getWsWriteTimeout(), TimeUnit.MILLISECONDS));
 
         pipeline.addLast(new HttpServerCodec());
 
-        pipeline.addLast(new HttpObjectAggregator(properties.getMaxContentLength()));
+        int maxContentLength = Long.valueOf(properties.getConnect().getMaxContentLength().toBytes()).intValue();
+        pipeline.addLast(new HttpObjectAggregator(maxContentLength));
 
         pipeline.addLast(new WebSocketHandler(properties));
 
-        pipeline.addLast(new WebSocketServerProtocolHandler(properties.getPathPrefix(), true));
+        pipeline.addLast(new WebSocketServerProtocolHandler(properties.getConnect().getPathPrefix(), true));
     }
 }

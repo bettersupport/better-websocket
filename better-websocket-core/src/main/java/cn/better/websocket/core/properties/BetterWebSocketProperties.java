@@ -1,6 +1,7 @@
 package cn.better.websocket.core.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.util.unit.DataSize;
 
 /**
  * @author wang.wencheng
@@ -11,94 +12,123 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class BetterWebSocketProperties {
 
     /**
-     * 父组线程数
+     * 服务配置
      */
-    private Integer parentGroupThreadNumber = 0;
+    private Server server = new Server();
 
     /**
-     * 子组线程数
+     * 连接配置
      */
-    private Integer childGroupThreadNumber = 0;
+    private Connect connect = new Connect();
 
-    /**
-     * 服务端口
-     */
-    private Integer serverPort = 10000;
-
-    /**
-     * 路径前缀 格式 /***
-     */
-    private String pathPrefix = "";
-
-    /**
-     * 读数据超时时间
-     */
-    private Long wsReadTimeout = 60000L;
-
-    /**
-     * 写数据超时时间
-     */
-    private Long wsWriteTimeout = 60000L;
-
-    /**
-     * 消息体最大长度，默认1MB
-     */
-    private Integer maxContentLength = 1024 * 1024;
-
-
-    public Integer getParentGroupThreadNumber() {
-        return parentGroupThreadNumber;
+    public Server getServer() {
+        return server;
     }
 
-    public void setParentGroupThreadNumber(Integer parentGroupThreadNumber) {
-        this.parentGroupThreadNumber = parentGroupThreadNumber;
+    public void setServer(Server server) {
+        this.server = server;
     }
 
-    public Integer getChildGroupThreadNumber() {
-        return childGroupThreadNumber;
+    public Connect getConnect() {
+        return connect;
     }
 
-    public void setChildGroupThreadNumber(Integer childGroupThreadNumber) {
-        this.childGroupThreadNumber = childGroupThreadNumber;
+    public void setConnect(Connect connect) {
+        this.connect = connect;
     }
 
-    public Integer getServerPort() {
-        return serverPort;
+    public static class Server {
+        /**
+         * 父组线程数
+         */
+        private Integer parentGroupThreadNumber = 0;
+
+        /**
+         * 子组线程数
+         */
+        private Integer childGroupThreadNumber = 0;
+
+        /**
+         * 服务端口
+         */
+        private Integer serverPort = 10000;
+
+        public Integer getParentGroupThreadNumber() {
+            return parentGroupThreadNumber;
+        }
+
+        public void setParentGroupThreadNumber(Integer parentGroupThreadNumber) {
+            this.parentGroupThreadNumber = parentGroupThreadNumber;
+        }
+
+        public Integer getChildGroupThreadNumber() {
+            return childGroupThreadNumber;
+        }
+
+        public void setChildGroupThreadNumber(Integer childGroupThreadNumber) {
+            this.childGroupThreadNumber = childGroupThreadNumber;
+        }
+
+        public Integer getServerPort() {
+            return serverPort;
+        }
+
+        public void setServerPort(Integer serverPort) {
+            this.serverPort = serverPort;
+        }
     }
 
-    public void setServerPort(Integer serverPort) {
-        this.serverPort = serverPort;
-    }
+    public static class Connect {
+        /**
+         * 路径前缀 格式 /***
+         */
+        private String pathPrefix = "";
 
-    public String getPathPrefix() {
-        return pathPrefix;
-    }
+        /**
+         * 读数据超时时间
+         */
+        private Long wsReadTimeout = 60000L;
 
-    public void setPathPrefix(String pathPrefix) {
-        this.pathPrefix = pathPrefix;
-    }
+        /**
+         * 写数据超时时间
+         */
+        private Long wsWriteTimeout = 60000L;
 
-    public Long getWsReadTimeout() {
-        return wsReadTimeout;
-    }
+        /**
+         * 消息体最大长度，默认1MB
+         */
+        private DataSize maxContentLength = DataSize.ofMegabytes(1);
 
-    public void setWsReadTimeout(Long wsReadTimeout) {
-        this.wsReadTimeout = wsReadTimeout;
-    }
+        public String getPathPrefix() {
+            return pathPrefix;
+        }
 
-    public Long getWsWriteTimeout() {
-        return wsWriteTimeout;
-    }
+        public void setPathPrefix(String pathPrefix) {
+            this.pathPrefix = pathPrefix;
+        }
 
-    public void setWsWriteTimeout(Long wsWriteTimeout) {
-        this.wsWriteTimeout = wsWriteTimeout;
-    }
+        public Long getWsReadTimeout() {
+            return wsReadTimeout;
+        }
 
-    public Integer getMaxContentLength() {
-        return maxContentLength;
-    }
+        public void setWsReadTimeout(Long wsReadTimeout) {
+            this.wsReadTimeout = wsReadTimeout;
+        }
 
-    public void setMaxContentLength(Integer maxContentLength) {
-        this.maxContentLength = maxContentLength;
+        public Long getWsWriteTimeout() {
+            return wsWriteTimeout;
+        }
+
+        public void setWsWriteTimeout(Long wsWriteTimeout) {
+            this.wsWriteTimeout = wsWriteTimeout;
+        }
+
+        public DataSize getMaxContentLength() {
+            return maxContentLength;
+        }
+
+        public void setMaxContentLength(DataSize maxContentLength) {
+            this.maxContentLength = maxContentLength;
+        }
     }
 }

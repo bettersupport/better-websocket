@@ -54,11 +54,15 @@ public class WebSocketHandler extends SimpleChannelInboundHandler<TextWebSocketF
             if (StringUtils.isEmpty(upgrade) || !UPGRADE_VALUE.equalsIgnoreCase(upgrade)) {
                 ctx.close();
             } else {
-                if (uri.indexOf(properties.getPathPrefix()) != 0) {
+                String pathPrefix = properties.getConnect().getPathPrefix();
+                if (StringUtils.isEmpty(pathPrefix)) {
+                    pathPrefix = "";
+                }
+                if (uri.indexOf(pathPrefix) != 0) {
                     log.warn("url {} not found", uri);
                     notFoundError(ctx);
                 } else {
-                    String path = uri.substring(properties.getPathPrefix().length());
+                    String path = uri.substring(pathPrefix.length());
                     int paramStartIndex = path.indexOf("?");
                     String pathWithoutParam = path.substring(0, paramStartIndex >= 0 ? paramStartIndex : path.length());
                     WebSocketClass clazz = WebSocketMapRegister.getWebSocketMap().get(pathWithoutParam);
