@@ -46,15 +46,22 @@ spring:
  */
 @WebSocketMapping("/chat_online")
 public class ChatOnline implements WebSocketEndpointInterface {
-    /**
-     * 
-     */
     private static final Logger log = LoggerFactory.getLogger(ChatOnline.class);
+
+    /**
+     * 连接打开
+     * @param session 连接会话（包含参数等对象）
+     */
     @Override
     public void onOpen(WebSocketSession session) {
         log.info("onOpen({}) {}", session, JSONObject.toJSONString(session));
     }
 
+    /**
+     * 收到消息
+     * @param session 连接会话（包含参数等对象）
+     * @param message 消息内容
+     */
     @Override
     public void onMessage(WebSocketSession session, String message) {
         log.info("onMessage({}) {} \n[{}]", session, JSONObject.toJSONString(session), message);
@@ -62,11 +69,20 @@ public class ChatOnline implements WebSocketEndpointInterface {
         sendMessage(session, "chat_online: " + message);
     }
 
+    /**
+     * 连接关闭
+     * @param session 连接会话（包含参数等对象）
+     */
     @Override
     public void onClose(WebSocketSession session) {
         log.info("onClose({}) {}", session, JSONObject.toJSONString(session));
     }
 
+    /**
+     * 连接异常
+     * @param session 连接会话（包含参数等对象）
+     * @param t 异常
+     */
     @Override
     public void onError(WebSocketSession session, Throwable t) {
         log.error("onError({}) {} | {}", session, JSONObject.toJSONString(session), Throwables.getStackTraceAsString(t));

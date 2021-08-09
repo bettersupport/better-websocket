@@ -18,10 +18,10 @@
     </appender>
 
     <logger name="cn.better.websocket" level="DEBUG" additivity="false">
-        <appender-ref ref="FILE" />
+        <appender-ref ref="CONSOLE" />
     </logger>
 
-    <root level="INFO">
-        <appender-ref ref="FILE" />
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE" />
     </root>
 </configuration>
