@@ -11,6 +11,9 @@ spring:
       server:
         serverPort: 10001
         childGroupThreadNumber: 1000
+        parentGroupThreadNumber: 0
       connect:
         pathPrefix: /websocket
         maxContentLength: 10MB
+        wsReadTimeout: 60000
+        wsWriteTimeout: 60000
