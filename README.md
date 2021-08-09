@@ -5,7 +5,7 @@
 #### maven 引入
 ```xml
     <dependency>
-        <groupId>cn.better.websocket</groupId>
+        <groupId>io.github.bettersupport.websocket</groupId>
         <artifactId>better-websocket-core</artifactId>
         <version>${version}</version>
     </dependency>
@@ -38,6 +38,8 @@ spring:
 #### 注解
 ```java
 /**
+ * 需开启@WebSocketMapScan({"io.github.bettersupport.websocket.demo.endpoint"})
+ * 扫描包内的WebSocketMap
  * 如果pathPrefix设置的 /websocket
  * 此端点的访问路径为 /websocket/chat_online
  * 此类必须实现接口 WebSocketEndpointInterface

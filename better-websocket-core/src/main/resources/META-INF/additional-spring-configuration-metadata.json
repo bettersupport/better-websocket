@@ -2,8 +2,8 @@
   "groups": [
     {
       "name": "spring.better.websocket",
-      "type": "cn.better.websocket.core.properties.BetterWebSocketProperties",
-      "sourceType": "cn.better.websocket.core.properties.BetterWebSocketProperties",
+      "type": "io.github.bettersupport.websocket.core.properties.BetterWebSocketProperties",
+      "sourceType": "io.github.bettersupport.websocket.core.properties.BetterWebSocketProperties",
       "description": "websocket properties."
     }
   ],
@@ -11,49 +11,49 @@
     {
       "name": "spring.better.websocket.server.parentGroupThreadNumber",
       "type": "java.lang.Integer",
-      "sourceType": "cn.better.websocket.core.properties.BetterWebSocketProperties",
+      "sourceType": "io.github.bettersupport.websocket.core.properties.BetterWebSocketProperties",
       "defaultValue": 0,
       "description": "websocket parent thread number."
     },
     {
       "name": "spring.better.websocket.server.childGroupThreadNumber",
       "type": "java.lang.Integer",
-      "sourceType": "cn.better.websocket.core.properties.BetterWebSocketProperties",
+      "sourceType": "io.github.bettersupport.websocket.core.properties.BetterWebSocketProperties",
       "defaultValue": 0,
       "description": "websocket child thread number."
     },
     {
       "name": "spring.better.websocket.server.serverPort",
       "type": "java.lang.Integer",
-      "sourceType": "cn.better.websocket.core.properties.BetterWebSocketProperties",
+      "sourceType": "io.github.bettersupport.websocket.core.properties.BetterWebSocketProperties",
       "defaultValue": 10000,
       "description": "websocket server port."
     },
     {
       "name": "spring.better.websocket.connect.pathPrefix",
       "type": "java.lang.String",
-      "sourceType": "cn.better.websocket.core.properties.BetterWebSocketProperties",
+      "sourceType": "io.github.bettersupport.websocket.core.properties.BetterWebSocketProperties",
       "defaultValue": "",
       "description": "websocket path prefix, format: /*[/*]."
     },
     {
       "name": "spring.better.websocket.connect.wsReadTimeout",
       "type": "java.lang.Long",
-      "sourceType": "cn.better.websocket.core.properties.BetterWebSocketProperties",
+      "sourceType": "io.github.bettersupport.websocket.core.properties.BetterWebSocketProperties",
       "defaultValue": 60000,
       "description": "websocket read timeout."
     },
     {
       "name": "spring.better.websocket.connect.wsWriteTimeout",
       "type": "java.lang.Long",
-      "sourceType": "cn.better.websocket.core.properties.BetterWebSocketProperties",
+      "sourceType": "io.github.bettersupport.websocket.core.properties.BetterWebSocketProperties",
       "defaultValue": 60000,
       "description": "websocket write timeout."
     },
     {
       "name": "spring.better.websocket.connect.maxContentLength",
       "type": "org.springframework.util.unit.DataSize",
-      "sourceType": "cn.better.websocket.core.properties.BetterWebSocketProperties",
+      "sourceType": "io.github.bettersupport.websocket.core.properties.BetterWebSocketProperties",
       "defaultValue": "1MB",
       "description": "websocket max message length, default 1MB."
     }

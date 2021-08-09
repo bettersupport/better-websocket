@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.better.websocket.core.configuration.BetterWebSocketConfiguration
+  io.github.bettersupport.websocket.core.configuration.BetterWebSocketConfiguration
