@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author wang.wencheng
- * @date 2021-8-4
- * @remark
+ * date 2021-8-4
+ * describe
  */
 @RestController
 public class TestApi {

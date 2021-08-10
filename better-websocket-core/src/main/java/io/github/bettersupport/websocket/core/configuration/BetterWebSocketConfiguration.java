@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author wang.wencheng
- * @date 2021-8-4
- * @remark
+ * date 2021-8-4
+ * describe
  */
 @Configuration
 @EnableConfigurationProperties(BetterWebSocketProperties.class)

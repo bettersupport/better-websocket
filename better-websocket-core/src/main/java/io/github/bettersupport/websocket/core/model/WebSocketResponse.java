@@ -2,8 +2,8 @@ package io.github.bettersupport.websocket.core.model;
 
 /**
  * @author wang.wencheng
- * @date 2021-8-5
- * @remark
+ * date 2021-8-5
+ * describe
  */
 public class WebSocketResponse<T> {
 

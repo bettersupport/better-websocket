@@ -6,8 +6,8 @@ import java.util.Map;
 
 /**
  * @author wang.wencheng
- * @date 2021-8-3
- * @remark
+ * date 2021-8-3
+ * describe
  */
 public class WebSocketSession {
 

@@ -10,8 +10,8 @@ import org.slf4j.LoggerFactory;
 
 /**
  * @author wang.wencheng
- * @date 2021-8-3
- * @remark
+ * date 2021-8-3
+ * describe
  */
 @WebSocketMapping("/game_online")
 public class GameOnline implements WebSocketEndpointInterface {

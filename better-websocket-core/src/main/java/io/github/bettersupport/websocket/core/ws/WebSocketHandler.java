@@ -17,8 +17,8 @@ import java.util.Map;
 
 /**
  * @author wang.wencheng
- * @date 2021-8-5
- * @remark
+ * date 2021-8-5
+ * describe
  */
 public class WebSocketHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
     private static final Logger log = LoggerFactory.getLogger(WebSocketHandler.class);

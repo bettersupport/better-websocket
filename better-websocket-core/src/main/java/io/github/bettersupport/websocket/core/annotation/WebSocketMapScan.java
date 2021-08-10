@@ -8,8 +8,8 @@ import java.lang.annotation.*;
 
 /**
  * @author wang.wencheng
- * @date 2021-8-3
- * @remark
+ * date 2021-8-3
+ * describe
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

@@ -4,8 +4,8 @@ import io.github.bettersupport.websocket.core.annotation.WebSocketMapping;
 
 /**
  * @author wang.wencheng
- * @date 2021-8-4
- * @remark
+ * date 2021-8-4
+ * describe
  */
 public class WebSocketClass {
 

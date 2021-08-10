@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author wang.wencheng
- * @date 2021-8-3
- * @remark
+ * date 2021-8-3
+ * describe
  */
 @SpringBootApplication
 @WebSocketMapScan({"io.github.bettersupport.websocket.demo.endpoint"})

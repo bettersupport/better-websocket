@@ -15,8 +15,8 @@ import java.util.concurrent.Executors;
 
 /**
  * @author wang.wencheng
- * @date 2021-8-4
- * @remark
+ * date 2021-8-4
+ * describe
  */
 public class WebSocketServer {
     private static final Logger log = LoggerFactory.getLogger(WebSocketServer.class);
